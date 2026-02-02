@@ -1,3 +1,7 @@
+from collections import namedtuple
+
+Point = namedtuple('Point', ['x', 'y'])
+
 class Map:
     def __init__(self, lines):
         self.lines = lines
@@ -15,6 +19,15 @@ class Map:
             return '.'
         else:
             return self.lines[y][x]
+
+    def get_chars(self, char):
+        posn = []
+        for y, row in enumerate(self.lines):
+            for x, at in enumerate(row):
+                if char == at:
+                    posn.append(Point(x, y))
+        return posn
+
 
 
 class Row:
