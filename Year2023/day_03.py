@@ -61,7 +61,7 @@ for line in puzzle.get_rows():
 
 
 gears = puzzle.get_chars('*')
-gear_total = 0;
+gear_total = 0
 for gear in gears:
     adj = get_adjacent_numbers(gear)
     if len(adj) == 2:
