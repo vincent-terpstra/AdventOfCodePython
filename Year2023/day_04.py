@@ -21,7 +21,7 @@ class Card:
 
 
 cards = list(map(Card, lines))
-total = sum(map(lambda c: c.score(), cards))
+total = sum(c.score() for c in cards)
 print(total)
 
 for idx, card in enumerate(cards):
