@@ -124,9 +124,7 @@ def solution_part_2_ranges():
 
                 matches.append(matching_ranges[0].slice(match))
 
-                for idx in range(match_count - 1):
-                    current_range = matching_ranges[idx]
-                    next_range = matching_ranges[idx + 1]
+                for current_range, next_range in zip(matching_ranges[0:-1], matching_ranges[1:]):
                     if current_range.max < next_range.min:
                         matches.append((current_range.max + 1, next_range.min - 1))
                     matches.append(next_range.slice(match))
