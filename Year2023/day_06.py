@@ -7,9 +7,9 @@ lines = readfile(file_path)
 
 
 class Race:
-    def __init__(self, time):
-        self.time = int(time)
-        self.distance = 0
+    def __init__(self, parts):
+        self.time = int(parts[0])
+        self.distance = int(parts[1])
 
     def set_distance(self, distance):
         self.distance = distance
@@ -24,9 +24,6 @@ class Race:
         return (self.time - charge_time) * charge_time
 
 
-races = list(map(Race, lines[0].split(':')[1].split()))
-for race, dist in zip(races, lines[1].split(':')[1].split()):
-    race.set_distance(int(dist))
-
+races = list(map(Race, zip(lines[0].split(':')[1].split(), lines[1].split(':')[1].split())))
 multi = math.prod(race.solution_1() for race in races)
 print(multi)
