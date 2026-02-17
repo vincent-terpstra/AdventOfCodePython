@@ -23,7 +23,27 @@ class Race:
     def dist_traveled(self, charge_time):
         return (self.time - charge_time) * charge_time
 
+def int_from_row(line):
+    return int(line.split(':')[1].replace(" ", ""))
 
-races = list(map(Race, zip(lines[0].split(':')[1].split(), lines[1].split(':')[1].split())))
-multi = math.prod(race.solution_1() for race in races)
-print(multi)
+
+def solution_1():
+    races = list(map(Race, zip(lines[0].split(':')[1].split(), lines[1].split(':')[1].split())))
+    multi = math.prod(race.solution_1() for race in races)
+    print(multi)
+
+
+def solution_2():
+    time = int_from_row(lines[0])
+    distance = int_from_row(lines[1])
+    race = Race((time, distance))
+    # note using solution1 to solve is slightly suboptimal
+    # 32583852
+    print(race.solution_1())
+
+
+solution_2()
+
+
+# solution_1()
+
