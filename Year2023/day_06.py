@@ -23,6 +23,7 @@ class Race:
     def dist_traveled(self, charge_time):
         return (self.time - charge_time) * charge_time
 
+
 def int_from_row(line):
     return int(line.split(':')[1].replace(" ", ""))
 
